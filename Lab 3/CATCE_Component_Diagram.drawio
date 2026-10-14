@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="CATCE Component Diagram" id="catce-diagram">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Centralized Audit Trail Compliance Engine (CATCE) — Component Diagram" style="text;html=1;fontSize=18;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="80" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- COMPONENTS (coords x2 of verified matplotlib layout) -->
+        <mxCell id="ingestion" value="&lt;&lt;component&gt;&gt;&#10;:Log Ingestion Service" style="shape=component;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#000000;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="440" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hashchain" value="&lt;&lt;component&gt;&gt;&#10;:Hash Chain Integrity Service" style="shape=component;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="860" y="200" width="440" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="access" value="&lt;&lt;component&gt;&gt;&#10;:Access Control Service" style="shape=component;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#000000;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="200" width="440" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="query" value="&lt;&lt;component&gt;&gt;&#10;:Query Service" style="shape=component;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#000000;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="160" y="840" width="440" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="replication" value="&lt;&lt;component&gt;&gt;&#10;:Replication &amp; Durability Service" style="shape=component;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#000000;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="860" y="840" width="440" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- ================= INTERFACE 1: Ingestion -> HashChain : HashRequest ================= -->
+        <mxCell id="port1a" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="592" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ball1" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="678" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl1" value="HashRequest" style="text;html=1;fontSize=11;fontStyle=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="590" y="205" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e1a" style="endArrow=none;html=1;" edge="1" parent="1" source="port1a" target="ball1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1b" style="endArrow=none;html=1;dashed=1;" edge="1" parent="1" source="ball1" target="hashchain">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="860" y="262" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="port1b" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="852" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ================= INTERFACE 2: HashChain -> Access : Verification ================= -->
+        <mxCell id="port2a" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1292" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ball2" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1378" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl2" value="Verification" style="text;html=1;fontSize=11;fontStyle=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="205" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e2a" style="endArrow=none;html=1;" edge="1" parent="1" source="port2a" target="ball2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="port2b" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1552" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e2b" style="endArrow=none;html=1;dashed=1;" edge="1" parent="1" source="ball2" target="port2b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================= INTERFACE 3: Query -> Ingestion : LogData (straight vertical) ================= -->
+        <mxCell id="port3bottom" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="830" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ball3" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="630" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl3" value="LogData" style="text;html=1;fontSize=11;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="330" y="622" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e3a" style="endArrow=none;html=1;" edge="1" parent="1" source="port3bottom" target="ball3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="port3top" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="370" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e3b" style="endArrow=none;html=1;dashed=1;" edge="1" parent="1" source="ball3" target="port3top">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================= INTERFACE 4: Replication -> Ingestion : Sync (up then left) ================= -->
+        <mxCell id="port4bottom" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="830" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ball4" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="630" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl4" value="Sync" style="text;html=1;fontSize=11;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="622" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e4a" style="endArrow=none;html=1;" edge="1" parent="1" source="port4bottom" target="ball4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="port4top" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="490" y="370" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e4b" style="endArrow=none;html=1;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="ball4" target="port4top">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="500" />
+              <mxPoint x="500" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ================= INTERFACE 5: Query -> Access : RoleCheck (routed below) ================= -->
+        <mxCell id="port5query" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="592" y="930" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ball5" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="592" y="1090" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl5" value="RoleCheck" style="text;html=1;fontSize=11;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="630" y="1218" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e5a" style="endArrow=none;html=1;" edge="1" parent="1" source="port5query" target="ball5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="port5access" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="370" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e5b" style="endArrow=none;html=1;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="ball5" target="port5access">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="602" y="1300" />
+              <mxPoint x="1610" y="1300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- External input arrow into Ingestion -->
+        <mxCell id="extBall" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="extLbl" value="RawAuditLogs" style="text;html=1;fontSize=11;fontStyle=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="10" y="205" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="portExtIngest" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="150" y="252" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eExt" style="endArrow=none;html=1;" edge="1" parent="1" source="extBall" target="portExtIngest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Square = port   |   Circle = provided interface (ball)   |   Dashed line into a port = required interface (socket)" style="text;html=1;fontSize=13;fontStyle=2;align=left;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1340" width="800" height="24" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
