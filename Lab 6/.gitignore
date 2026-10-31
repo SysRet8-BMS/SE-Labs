@@ -1,0 +1,7 @@
+# workspace environment
+.venv
+
+# package caches
+.coverage
+.pytest_cache
+__pycache__
